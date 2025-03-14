@@ -4,8 +4,8 @@ BEGIN
 	SELECT
 		Cls.ClassName,
 		Tch.TeacherName,
-		COUNT(CASE WHEN ClReg.HasPaidFees = 1 THEN ClReg.Student_ID END) AS PaidStudents,  
-		COUNT(ClReg.Student_ID) AS TotalRegisteredStudents
+		COUNT(CASE WHEN ClReg.HasPaidFees = 1 THEN ClReg.Student_ID END) AS NumberOfStudentsWithPaidFees,  
+		COUNT(ClReg.Student_ID) AS NumberOfRegisteredStudents
 		FROM [dbo].[Class] Cls
 	LEFT JOIN [dbo].[Teacher] Tch
 		ON Cls.Teacher_ID = Tch.Teacher_ID
