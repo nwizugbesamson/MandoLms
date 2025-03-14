@@ -6,3 +6,29 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div class="container mt-5">
+    <h2>Class Registration Report</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Class Name</th>
+                <th>Teacher Name</th>
+                <th>Number of Paid Students</th>
+                <th>Total Number of Students</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ClassName</td>
+                    <td>@item.TeacherName</td>
+                    <td>@item.NumberOfRegisteredStudents</td>
+                    <td>@item.NumberOfStudentsWithPaidFees</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,21 +1,26 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MandoLms.WebApp.Models;
+using MandoLms.WebApp.Services;
 
 namespace MandoLms.WebApp.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IClassRegistrationService _reportService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, 
+        IClassRegistrationService reportService)
     {
         _logger = logger;
+        _reportService = reportService;
     }
 
     public IActionResult Index()
     {
-        return View();
+        var report = _reportService.GetRegistrationReport();
+        return View(report);
     }
 
     public IActionResult Privacy()
