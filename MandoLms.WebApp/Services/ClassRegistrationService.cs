@@ -13,12 +13,13 @@ namespace MandoLms.WebApp.Services
             _dbConnection = connection;
         }
 
-        public IEnumerable<ClassRegistrationReport> GetRegistrationReport()
+        public IEnumerable<ClassRegistrationReport> GetRegistrationReport(int? minRegistrations)
         {
-
+            var parameters = new { MinRegistrations = minRegistrations };
             return _dbConnection
                 .Query<ClassRegistrationReport>(
-                    "ClassRegistrationReport",
+                    "ClassRegistrationReportV2",
+                    parameters,
                     commandType: CommandType.StoredProcedure
                     ).ToList();
 

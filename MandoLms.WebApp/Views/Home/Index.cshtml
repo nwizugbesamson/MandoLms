@@ -9,7 +9,14 @@
 
 <div class="container mt-5">
     <h2>Class Registration Report</h2>
-
+    <form method="get" asp-action="Index" class="mb-4">
+        <div class="form-group">
+            <label for="minRegistrations">Min Registrations:</label>
+            <input type="number" id="minRegistrations" name="minRegistrations" class="form-control" min="0" 
+            value="@ViewData["minRegistrations"]" />
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Refresh</button>
+    </form>
     <table class="table table-bordered">
         <thead>
             <tr>

@@ -4,6 +4,6 @@ namespace MandoLms.WebApp.Services
 {
     public interface IClassRegistrationService
     {
-        IEnumerable<ClassRegistrationReport> GetRegistrationReport();
+        IEnumerable<ClassRegistrationReport> GetRegistrationReport(int? minRegistrations);
     }
 }

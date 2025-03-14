@@ -17,9 +17,9 @@ public class HomeController : Controller
         _reportService = reportService;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(int? minRegistrations)
     {
-        var report = _reportService.GetRegistrationReport();
+        var report = _reportService.GetRegistrationReport(minRegistrations);
         return View(report);
     }
 
