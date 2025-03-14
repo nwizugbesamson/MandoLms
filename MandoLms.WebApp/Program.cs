@@ -1,5 +1,6 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
+using MandoLms.WebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddScoped<IDbConnection>(sp =>
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     return new SqlConnection(connectionString);
 });
+
+builder.Services.AddScoped<IClassRegistrationService, ClassRegistrationService>();
 
 var app = builder.Build();
 

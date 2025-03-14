@@ -5,7 +5,7 @@ using Dapper;
 
 namespace MandoLms.WebApp.Services
 {
-    public class ClassRegistrationService
+    public class ClassRegistrationService : IClassRegistrationService
     {
         private readonly IDbConnection _dbConnection;
         public ClassRegistrationService(IDbConnection connection)
@@ -15,13 +15,13 @@ namespace MandoLms.WebApp.Services
 
         public IEnumerable<ClassRegistrationReport> GetRegistrationReport()
         {
-            
+
             return _dbConnection
                 .Query<ClassRegistrationReport>(
                     "ClassRegistrationReport",
                     commandType: CommandType.StoredProcedure
                     ).ToList();
-            
+
         }
     }
 }
